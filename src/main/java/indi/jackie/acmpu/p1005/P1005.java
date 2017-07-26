@@ -78,6 +78,6 @@ public class P1005 {
      * @return 年数
      */
     private Integer getYear(Float x, Float y) {
-        return new Double(Math.sqrt(this.PI * (x * x + y * y) / (2 * this.SHRINK_SPEED))).intValue() + 1;
+        return new Double(this.PI * (x * x + y * y) / (2 * this.SHRINK_SPEED)).intValue() + 1;
     }
 }

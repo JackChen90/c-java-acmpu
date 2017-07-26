@@ -17,8 +17,7 @@ public class CommonUtil {
      */
     public static <T> void printListResult(List<T> result) {
         for (int i = 0; i < result.size(); i++) {
-            System.out.print(result.get(i));
+            System.out.println(result.get(i));
         }
-        System.out.println();
     }
 }
