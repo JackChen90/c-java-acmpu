@@ -13,7 +13,7 @@ import java.util.Scanner;
 /**
  * @author jackie chen
  * @create 2017/7/31
- * @description MayaDto
+ * @description P1008
  */
 public class P1008 {
 
