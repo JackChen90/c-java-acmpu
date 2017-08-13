@@ -17,69 +17,69 @@ public class P1009 {
     private String[] tempArray = new String[2];
     private List<String[]> tempList = new ArrayList<>();
 
-//    @Test
-//    public void p1009() {
-//
-//        String data = "7\n" +
-//                "15 4\n" +
-//                "100 15\n" +
-//                "25 2\n" +
-//                "175 2\n" +
-//                "25 5\n" +
-//                "175 2\n" +
-//                "25 5\n" +
-//                "0 0\n" +
-//                "10\n" +
-//                "35 500000000\n" +
-//                "200 500000000\n" +
-//                "0 0\n" +
-//                "3\n" +
-//                "255 1\n" +
-//                "10 1\n" +
-//                "255 2\n" +
-//                "10 1\n" +
-//                "255 2\n" +
-//                "10 1\n" +
-//                "255 1\n" +
-//                "0 0\n" +
-//                "0";
-//        InputStream stdin = System.in;
-//
-//        try {
-//            System.setIn(new ByteArrayInputStream(data.getBytes()));
-//            Scanner cin = new Scanner(System.in);
-//            Integer columnCount;
-//            List<ImageDto> images = new ArrayList<>();
-//            if (cin.hasNext()) {
-//                columnCount = Integer.parseInt(cin.nextLine());//第一条为第一个地图的列数
-//                String temp;
-//                while (cin.hasNext()) {
-//                    temp = cin.nextLine();
-//                    this.tempArray = temp.split("\u0020");
-//                    if (tempArray.length == 1) {
-//                        if (tempArray[0].equals("0")) {//一个0，输入结束
-//                            break;
-//                        } else {//不是0，则为新地图列数
-//                            columnCount = Integer.valueOf(tempArray[0]);
-//                            continue;
-//                        }
-//                    } else if (tempArray[0].equals("0") && tempArray[1].equals("0")) {//两个0，单个地图数据结束
-//                        //将输入数据转为地图数据
-//                        ImageDto imageDto = convertToImage(this.tempList, columnCount);
-//                        //插入地图列表
-//                        images.add(imageDto);
-//                        this.tempList = new ArrayList<>();
-//                    } else {//记录输入数据
-//                        this.tempList.add(this.tempArray);
-//                    }
-//                }
-//                //处理输入列表
-//                dealList(images);
-//            }
-//        } finally {
-//            System.setIn(stdin);
-//        }
-//    }
+    @Test
+    public void p1009() {
+
+        String data = "7\n" +
+                "15 4\n" +
+                "100 15\n" +
+                "25 2\n" +
+                "175 2\n" +
+                "25 5\n" +
+                "175 2\n" +
+                "25 5\n" +
+                "0 0\n" +
+                "10\n" +
+                "35 500000000\n" +
+                "200 500000000\n" +
+                "0 0\n" +
+                "3\n" +
+                "255 1\n" +
+                "10 1\n" +
+                "255 2\n" +
+                "10 1\n" +
+                "255 2\n" +
+                "10 1\n" +
+                "255 1\n" +
+                "0 0\n" +
+                "0";
+        InputStream stdin = System.in;
+
+        try {
+            System.setIn(new ByteArrayInputStream(data.getBytes()));
+            Scanner cin = new Scanner(System.in);
+            Integer columnCount;
+            List<ImageDto> images = new ArrayList<>();
+            if (cin.hasNext()) {
+                columnCount = Integer.parseInt(cin.nextLine());//第一条为第一个地图的列数
+                String temp;
+                while (cin.hasNext()) {
+                    temp = cin.nextLine();
+                    this.tempArray = temp.split("\u0020");
+                    if (tempArray.length == 1) {
+                        if (tempArray[0].equals("0")) {//一个0，输入结束
+                            break;
+                        } else {//不是0，则为新地图列数
+                            columnCount = Integer.valueOf(tempArray[0]);
+                            continue;
+                        }
+                    } else if (tempArray[0].equals("0") && tempArray[1].equals("0")) {//两个0，单个地图数据结束
+                        //将输入数据转为地图数据
+                        ImageDto imageDto = convertToImage(this.tempList, columnCount);
+                        //插入地图列表
+                        images.add(imageDto);
+                        this.tempList = new ArrayList<>();
+                    } else {//记录输入数据
+                        this.tempList.add(this.tempArray);
+                    }
+                }
+                //处理输入列表
+                dealList(images);
+            }
+        } finally {
+            System.setIn(stdin);
+        }
+    }
 
     /**
      * 输入的数据转为图信息
@@ -232,8 +232,7 @@ public class P1009 {
         }
         result.add("0");
 
-//        CommonUtil.printListResult(result);
-        printListResult(result);
+        CommonUtil.printListResult(result);
     }
 
     /**
@@ -276,44 +275,5 @@ public class P1009 {
 
         //返回最大值
         return maxValue;
-    }
-
-    public static void main(String[] args){
-        P1009 p1009= new P1009();
-        Scanner cin = new Scanner(System.in);
-        Integer columnCount;
-        List<ImageDto> images = new ArrayList<>();
-        if (cin.hasNext()) {
-            columnCount = Integer.parseInt(cin.nextLine());//第一条为第一个地图的列数
-            String temp;
-            while (cin.hasNext()) {
-                temp = cin.nextLine();
-                p1009.tempArray = temp.split("\u0020");
-                if (p1009.tempArray.length == 1) {
-                    if (p1009.tempArray[0].equals("0")) {//一个0，输入结束
-                        break;
-                    } else {//不是0，则为新地图列数
-                        columnCount = Integer.valueOf(p1009.tempArray[0]);
-                        continue;
-                    }
-                } else if (p1009.tempArray[0].equals("0") && p1009.tempArray[1].equals("0")) {//两个0，单个地图数据结束
-                    //将输入数据转为地图数据
-                    ImageDto imageDto = p1009.convertToImage(p1009.tempList, columnCount);
-                    //插入地图列表
-                    images.add(imageDto);
-                    p1009.tempList = new ArrayList<>();
-                } else {//记录输入数据
-                    p1009.tempList.add(p1009.tempArray);
-                }
-            }
-            //处理输入列表
-            p1009.dealList(images);
-        }
-    }
-
-    public static <T> void printListResult(List<T> result) {
-        for (int i = 0; i < result.size(); i++) {
-            System.out.println(result.get(i));
-        }
     }
 }
